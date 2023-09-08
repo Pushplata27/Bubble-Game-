@@ -12,12 +12,23 @@ function hitVal() {
   document.querySelector("#hitVal").textContent = hitrn;
 }
 
+function getRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green  = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const color = `rgb(${red}, ${green}, ${blue})`;
+
+  return color;
+}
+
 function makeBubble() {
   var clutter = "";
 
   for (i = 1; i <= 136; i++) {
     var rn = Math.floor(Math.random() * 10);
-    clutter += ` <div class="bubble">${rn}</div>`;
+    var rc = getRandomColor();
+    clutter += ` <div class="bubble" style="background-color:${rc};">${rn}</div>`;
   }
 
   document.querySelector("#pbtm").innerHTML = clutter;
@@ -46,5 +57,5 @@ document.querySelector("#pbtm").addEventListener("click", (details) => {
 
 runTimer();
 makeBubble();
+getRandomColor();
 hitVal();
-// increaseScore();
